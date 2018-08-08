@@ -18,6 +18,8 @@ services:
     image: dpolicastro/ubuntu-geth:dev
     tty: true
     working_dir: /srv
+    links:
+      - "ubuntu-geth:localhost"
     ports:
       - "9000:9000"
     volumes:
