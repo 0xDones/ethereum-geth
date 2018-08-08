@@ -2,23 +2,23 @@ version: '3'
 
 services:
   ubuntu-geth:
-    image: dpolicastro/ubuntu-geth:dev
+    image: ethereum-geth-vm
     tty: true
     working_dir: /srv
     ports:
       - "30303:30303"
       - "8545:8545"
     volumes:
-      - "/home/policastro/development/ethereum:/srv"
+      - "/home/ethereum:/srv"
     command: /bin/bash
     # network_mode: "host"
   front-end:
-    image: dpolicastro/ubuntu-geth:dev
+    image: ethereum-geth-vm
     tty: true
     working_dir: /srv
     ports:
       - "9000:9000"
     volumes:
-      - "/home/policastro/development/ethereum:/srv"
+      - "/home/ethereum:/srv"
     command: /bin/bash
 
