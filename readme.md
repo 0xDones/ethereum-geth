@@ -1,8 +1,8 @@
 This is a development repo, I tryied to build my own image to run Geth on.
 
-# Running Geth on ethereum's imagem
+# Running Geth on ethereum's imagem (Limited shell)
 ```sh
-docker run -d --name ethereum-node -v /home/policastro/development/ethereum:/srv \
+docker run -d --name ethereum-node -v ~/development/ethereum:/srv \
 -p 8545:8545 -p 30303:30303 -w="/srv" ethereum/client-go \
 --datadir aula_web --dev --rpc \
 --rpcapi "admin,db,eth,debug,miner,net,shh,txpool,personal,web3" \
@@ -20,8 +20,8 @@ $ docker build -t ethereum-geth-vm .
 
 - Running container:  
 ```sh
-docker run -it -p 8545:8545 -p 30303:30303 -e DATA_DIR=aula_web \
--v /home/ethereum:/srv -w="/srv" --name ethereum-geth ethereum-geth-vm bash
+docker run -it -p 8545:8545 -p 30303:30303 -p 9000:9000 \
+-v ~/development/ethereum:/srv -w="/srv" --name ethereum-geth ethereum-geth-vm bash
 ```
 
 - Get container bash:  
@@ -33,9 +33,9 @@ docker exec -it ethereum-geth-vm bash
 - Starting geth(On bash):  
 
 ```sh
-geth --datadir $DATA_DIR --dev --rpc \
+geth --datadir aula_web --dev --rpc \
 --rpcapi "admin,db,eth,debug,miner,net,shh,txpool,personal,web3" \
---rpcaddr "localhost" \
+--rpcaddr "0.0.0.0" \
 --rpcport "8545" \
 --rpccorsdomain "*" 
 ```
@@ -55,7 +55,7 @@ Execute this commands inside the container or on your local env
 ```sh
 geth --datadir aula_web --dev --rpc \
 --rpcapi "admin,db,eth,debug,miner,net,shh,txpool,personal,web3" \
---rpcaddr "localhost" \
+--rpcaddr "0.0.0.0" \
 --rpcport "8545" \
 --rpccorsdomain "*" 
 ```

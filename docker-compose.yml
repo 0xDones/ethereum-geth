@@ -11,8 +11,8 @@ services:
       - "30303:30303"
       - "8545:8545"
     volumes:
-      - "/home/policastro/development/ethereum:/srv"
-    command: /bin/bash
+      - "~/development/ethereum:/srv"
+    command: sh ethereum-image/start-geth.sh
     # network_mode: "host"
   front-end:
     image: dpolicastro/ubuntu-geth:dev
@@ -21,6 +21,8 @@ services:
     ports:
       - "9000:9000"
     volumes:
-      - "/home/policastro/development/ethereum:/srv"
-    command: /bin/bash
+      - "~/development/ethereum/ethereum_workbench/goblockchain_wb:/srv"
+    command: gulp serve
+    depends_on:
+      - ubuntu-geth
 
