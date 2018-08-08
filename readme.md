@@ -1,3 +1,16 @@
+This is a development repo, I tryied to build my own image to run Geth on.
+
+# Running Geth on ethereum's imagem
+```sh
+docker run -d --name ethereum-node -v /home/policastro/development/ethereum:/srv \
+-p 8545:8545 -p 30303:30303 -w="/srv" ethereum/client-go \
+--datadir aula_web --dev --rpc \
+--rpcapi "admin,db,eth,debug,miner,net,shh,txpool,personal,web3" \
+--rpcaddr "0.0.0.0" \
+--rpcport "8545" \
+--rpccorsdomain "*" 
+```
+
 # Dockerfile  
 
 - Building container:  
