@@ -21,10 +21,9 @@ services:
     links:
       - "ubuntu-geth:localhost"
     ports:
-      - "9000:9000"
+      - "3000:3000"
     volumes:
       - "~/development/ethereum/ethereum_workbench/goblockchain_wb:/srv"
     command: gulp serve
     depends_on:
       - ubuntu-geth
-

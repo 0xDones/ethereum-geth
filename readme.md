@@ -67,3 +67,34 @@ geth --datadir aula_web --dev --rpc \
 --wsport value WS-RPC server listening port (default: 8546)
 --wsapi value API's offered over the WS-RPC interface 
 ```
+
+Open Zepellin -> Token ERC20
+
+ABI is the interface, I dont need the ABI for a ERC20 token because it implements the interface,
+I just need the contractTx
+
+
+Solidity Modifiers
+
+    payable -> makes the function accept tokens
+
+pragma solidity 0.4.24;
+
+contract PersonTest {
+    
+    address public owner;
+    uint public created_at;
+    uint public id_person;
+    
+    string public name;
+    string public email;
+    
+    event LogUpdateEmail(address _addressPerson, string _newEmail);
+    
+    constructor(string _name, string _email) public {
+        name = _name;
+        email = _email;
+        owner = msg.sender;
+        created_at = now; // Comes from miner time
+    }
+}

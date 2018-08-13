@@ -8,3 +8,9 @@ RUN apt-get update && \
     sudo apt-get update && \
     sudo apt-get install ethereum -y && \
     sudo npm install -g bower gulp
+
+WORKDIR /www
+
+ADD . .
+
+CMD ["node", "app.js"]
