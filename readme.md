@@ -78,6 +78,7 @@ Solidity Modifiers
 
     payable -> makes the function accept tokens
 
+```js
 pragma solidity 0.4.24;
 
 contract PersonTest {
@@ -98,3 +99,4 @@ contract PersonTest {
         created_at = now; // Comes from miner time
     }
 }
+```
