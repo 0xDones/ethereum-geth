@@ -1,6 +1,7 @@
-This is a development repo, I tryied to build my own image to run Geth on.
+# Ethereum Geth dev
+I created this repo when I started working with Solidity in the Ethereum's network. Its not updated for a long time and shoudn't be used as a reference.
 
-# Running Geth on ethereum's imagem (Limited shell)
+## Running Geth on ethereum's imagem (Limited shell)
 ```sh
 docker run -d --name ethereum-node -v ~/development/ethereum:/srv \
 -p 8545:8545 -p 30303:30303 -w="/srv" ethereum/client-go \
@@ -11,26 +12,26 @@ docker run -d --name ethereum-node -v ~/development/ethereum:/srv \
 --rpccorsdomain "*" 
 ```
 
-# Dockerfile  
+## Dockerfile  
 
-- Building container:  
+Building the container:  
 ```sh
 $ docker build -t ethereum-geth-vm .
 ```
 
-- Running container:  
+Running the container:  
 ```sh
 docker run -it -p 8545:8545 -p 30303:30303 -p 9000:9000 \
 -v ~/development/ethereum:/srv -w="/srv" --name ethereum-geth ethereum-geth-vm bash
 ```
 
-- Get container bash:  
+Get container's shell:  
 
 ```sh
 docker exec -it ethereum-geth-vm bash
 ```
 
-- Starting geth(On bash):  
+Starting geth:  
 
 ```sh
 geth --datadir aula_web --dev --rpc \
@@ -40,14 +41,14 @@ geth --datadir aula_web --dev --rpc \
 --rpccorsdomain "*" 
 ```
 
-# Or run using Docker Composer  
+## Or run using Docker Composer  
 
-- Starting service:  
+Starting service:  
 ```sh
 $ docker-compose up -d
 ```
 
-# Geth  
+## Geth  
 
 Execute this commands inside the container or on your local env  
 - Starting geth on dev mode  
@@ -60,7 +61,7 @@ geth --datadir aula_web --dev --rpc \
 --rpccorsdomain "*" 
 ```
 
-- Enabling WebSocket:  
+Enabling WebSocket:  
 ```sh
 -ws Enable the WS-RPC server
 --wsaddr value WS-RPC server listening interface (default: "localhost")
@@ -68,7 +69,7 @@ geth --datadir aula_web --dev --rpc \
 --wsapi value API's offered over the WS-RPC interface 
 ```
 
-Open Zepellin -> Token ERC20
+## Open Zepellin -> Token ERC20
 
 ABI is the interface, I dont need the ABI for a ERC20 token because it implements the interface,
 I just need the contractTx
